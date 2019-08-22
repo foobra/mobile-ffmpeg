@@ -76,8 +76,8 @@ if ! [ -x "$(command -v xcrun)" ]; then
     exit 1
 fi
 
-# USE 12.1 AS IOS_MIN_VERSION
-export IOS_MIN_VERSION=12.1
+# USE 8.0 AS IOS_MIN_VERSION
+export IOS_MIN_VERSION=8.0
 
 get_mobile_ffmpeg_version() {
     local MOBILE_FFMPEG_VERSION=$(grep 'const MOBILE_FFMPEG_VERSION' ${BASEDIR}/ios/src/MobileFFmpeg.m | grep -Eo '\".*\"' | sed -e 's/\"//g')
@@ -108,7 +108,7 @@ display_help() {
     echo -e "  -v, --version\t\t\tdisplay version information and exit"
     echo -e "  -d, --debug\t\t\tbuild with debug information"
     echo -e "  -s, --speed\t\t\toptimize for speed instead of size"
-    echo -e "  -l, --lts\t\t\tbuild lts packages to support sdk 9.3+ devices, does not include arm64e architecture"
+    echo -e "  -l, --lts\t\t\tbuild lts packages to support sdk 8.0+ devices, does not include arm64e architecture"
     echo -e "  -f, --force\t\t\tignore warnings\n"
 
     echo -e "Licensing options:"
@@ -219,8 +219,8 @@ optimize_for_speed() {
 enable_lts_build() {
     export MOBILE_FFMPEG_LTS_BUILD="1"
 
-    # XCODE 7.3 HAS IOS SDK 9.3
-    export IOS_MIN_VERSION=9.3
+    # XCODE 7.3 HAS IOS SDK 8.0
+    export IOS_MIN_VERSION=8.0
 
     disable_arch "arm64e"
 }
@@ -809,6 +809,7 @@ if [[ -f ${XCODE_FOR_MOBILE_FFMPEG} ]]; then
     source ${XCODE_FOR_MOBILE_FFMPEG} 1>>${BASEDIR}/build.log 2>&1
 fi
 DETECTED_IOS_SDK_VERSION="$(xcrun --sdk iphoneos --show-sdk-version)"
+DETECTED_IOS_SDK_VERSION=8.0
 
 echo -e "INFO: Using SDK ${DETECTED_IOS_SDK_VERSION} by Xcode provided at $(xcode-select -p)\n" 1>>${BASEDIR}/build.log 2>&1
 if [[ ! -z ${MOBILE_FFMPEG_LTS_BUILD} ]] && [[ "${DETECTED_IOS_SDK_VERSION}" != "${IOS_MIN_VERSION}" ]]; then

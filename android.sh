@@ -63,7 +63,8 @@ export BASEDIR=$(pwd)
 export MOBILE_FFMPEG_TMPDIR="${BASEDIR}/.tmp"
 
 # USING API LEVEL 24 / Android 7.0 (NOUGAT)
-export API=24
+# USING API LEVEL 16
+export API=16
 
 RECONF_LIBRARIES=()
 REBUILD_LIBRARIES=()
@@ -82,7 +83,7 @@ without any external libraries enabled. Options can be used to disable ABIs and/
 Please note that GPL libraries (external libraries with GPL license) need --enable-gpl flag to be set explicitly. \
 When compilation ends an Android Archive (AAR) file is created with enabled platforms inside.\n"
 
-    echo -e "Usage: ./"$COMMAND" [OPTION]...\n"   
+    echo -e "Usage: ./"$COMMAND" [OPTION]...\n"
 
     echo -e "Specify environment variables as VARIABLE=VALUE to override default build options.\n"
 
