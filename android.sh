@@ -63,7 +63,7 @@ export BASEDIR=$(pwd)
 export MOBILE_FFMPEG_TMPDIR="${BASEDIR}/.tmp"
 
 # USING API LEVEL 24 / Android 7.0 (NOUGAT)
-export API=24
+export API=16
 
 get_mobile_ffmpeg_version() {
     local MOBILE_FFMPEG_VERSION=$(grep '#define MOBILE_FFMPEG_VERSION' ${BASEDIR}/android/app/src/main/cpp/mobileffmpeg.h | grep -Eo '\".*\"' | sed -e 's/\"//g')
@@ -181,8 +181,8 @@ optimize_for_speed() {
 enable_lts_build() {
     export MOBILE_FFMPEG_LTS_BUILD="1"
 
-    # USING API LEVEL 21 / Android 5.0 (LOLLIPOP)
-    export API=21
+    # USING API LEVEL 16 / Android 4.1 (JELLY BEAN)
+    export API=16
 }
 
 reconf_library() {

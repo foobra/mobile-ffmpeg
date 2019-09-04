@@ -380,6 +380,30 @@ echo -n -e "\n${LIB_NAME}: "
 
 make distclean 2>/dev/null 1>/dev/null
 
+# adpcm_ima_qt_at
+# alac_at
+# amr_nb_at
+# eac3_at
+# gsm_ms_at
+# ilbc_at
+# mp1_at
+# mp2_at
+# pcm_alaw_at
+# pcm_mulaw_at
+# qdm2_at
+# qdmc_at
+
+  # --enable-hwaccel=hevc_videotoolbox \
+    # --enable-hwaccel=mpeg1_videotoolbox \
+    # --enable-hwaccel=mpeg2_videotoolbox \
+    # --enable-hwaccel=mpeg4_videotoolbox \
+    # --enable-encoder=hevc_videotoolbox \
+    # --enable-encoder=mpeg1_videotoolbox \
+    # --enable-encoder=mpeg2_videotoolbox \
+    # --enable-encoder=mpeg4_videotoolbox \
+    # --enable-encoder=ac3 \
+
+
 ./configure \
     --sysroot=${SDK_PATH} \
     --prefix=${BASEDIR}/prebuilt/ios-$(get_target_build_directory)/${LIB_NAME} \
@@ -394,6 +418,54 @@ make distclean 2>/dev/null 1>/dev/null
     --ranlib="${RANLIB}" \
     --strip="${STRIP}" \
     ${NEON_FLAG} \
+       --disable-all \
+    --enable-avcodec \
+    --enable-avdevice \
+    --enable-avformat \
+    --enable-swresample \
+    --enable-swscale \
+    --enable-avutil \
+    --enable-avfilter \
+    --enable-filters \
+    --enable-hwaccels \
+    --enable-hwaccel=h264_videotoolbox \
+    --enable-hwaccel=hevc_videotoolbox \
+    --enable-hwaccel=aac_at \
+    --enable-encoder=h264_videotoolbox \
+    --enable-encoder=hevc_videotoolbox \
+    --enable-encoder=aac_at \
+    --enable-encoder=aac \
+    --enable-encoder=mpeg4 \
+    --enable-protocol=file \
+--enable-decoder=libmp3lame \
+--enable-decoder=aac_latm \
+--enable-decoder=flv \
+--enable-decoder=h264 \
+--enable-decoder=mp3* \
+--enable-decoder=vp6f \
+--enable-decoder=flac \
+--enable-decoder=hevc \
+--enable-decoder=vp8 \
+--enable-decoder=vp9 \
+--enable-decoder=mpeg4 \
+--enable-decoder=aac_at \
+--enable-decoder=ac3_at \
+--enable-decoder=mp3_at \
+--enable-muxer=mp4 \
+--enable-demuxer=aac \
+--enable-demuxer=concat \
+--enable-demuxer=data \
+--enable-demuxer=flv \
+--enable-demuxer=hls \
+--enable-demuxer=live_flv \
+--enable-demuxer=mov \
+--enable-demuxer=mp3 \
+--enable-demuxer=mpegps \
+--enable-demuxer=mpegts \
+--enable-demuxer=mpegvideo \
+--enable-demuxer=flac \
+--enable-demuxer=hevc \
+ --enable-decoder=pcm_* \
     --enable-cross-compile \
     --enable-pic \
     --enable-asm \

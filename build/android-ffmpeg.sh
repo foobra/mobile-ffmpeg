@@ -317,6 +317,16 @@ export LDFLAGS="${LDFLAGS}"
 # USE HIGHER LIMITS FOR FFMPEG LINKING
 ulimit -n 2048 1>>${BASEDIR}/build.log 2>&1
 
+    # --enable-hwaccel=h264_mediacodec \
+    # --enable-hwaccel=hevc_mediacodec \
+    # --enable-hwaccel=mpeg2_mediacodec \
+    # --enable-hwaccel=mpeg4_mediacodec \
+    # --enable-encoder=ac3 \
+# --enable-decoder=h264_mediacodec \
+# --enable-decoder=hevc_mediacodec \
+# --enable-decoder=mpeg2_mediacodec \
+# --enable-decoder=mpeg4_mediacodec \
+
 ./configure \
     --cross-prefix="${TARGET_HOST}-" \
     --sysroot="${ANDROID_NDK_ROOT}/toolchains/llvm/prebuilt/${TOOLCHAIN}/sysroot" \
@@ -329,11 +339,66 @@ ulimit -n 2048 1>>${BASEDIR}/build.log 2>&1
     --cxx="${CXX}" \
     --target-os=android \
     ${ASM_FLAGS} \
+     --disable-all \
+    --enable-avcodec \
+    --enable-avformat \
+    --enable-swresample \
+    --enable-swscale \
+    --enable-avutil \
+    --enable-avfilter \
+    --enable-filters \
+     --enable-mediacodec \
+     --enable-hwaccels \
+      --enable-hwaccel=h264_mediacodec \
+      --enable-hwaccel=hevc_mediacodec \
+      --enable-hwaccel=mpeg2_mediacodec \
+      --enable-hwaccel=mpeg4_mediacodec \
+    --enable-encoder=libx264 \
+    --enable-encoder=libx264rgb \
+    --enable-encoder=aac \
+    --enable-encoder=mpeg4 \
+    --enable-protocol=file \
+--enable-decoder=h264_mediacodec \
+--enable-decoder=hevc_mediacodec \
+--enable-decoder=mpeg2_mediacodec \
+--enable-decoder=mpeg4_mediacodec \
+--enable-decoder=libmp3lame \
+--enable-decoder=aac_latm \
+--enable-decoder=flv \
+--enable-decoder=h264 \
+--enable-decoder=mp3* \
+--enable-decoder=vp6f \
+--enable-decoder=flac \
+--enable-decoder=hevc \
+--enable-decoder=vp8 \
+--enable-decoder=vp9 \
+--enable-decoder=mpeg4 \
+--enable-muxer=mp4 \
+--enable-demuxer=aac \
+--enable-demuxer=concat \
+--enable-demuxer=data \
+--enable-demuxer=flv \
+--enable-demuxer=ts \
+--enable-demuxer=hls \
+--enable-demuxer=rmvb \
+--enable-demuxer=mpg \
+--enable-demuxer=mpeg \
+--enable-demuxer=wmv \
+--enable-demuxer=live_flv \
+--enable-demuxer=mov \
+--enable-demuxer=avi \
+--enable-demuxer=mkv \
+--enable-demuxer=mp3 \
+--enable-demuxer=mpegps \
+--enable-demuxer=mpegts \
+--enable-demuxer=mpegvideo \
+--enable-demuxer=flac \
+--enable-demuxer=hevc \
+ --enable-decoder=pcm_* \
     --enable-cross-compile \
     --enable-pic \
     --enable-jni \
     --enable-optimizations \
-    --enable-swscale \
     --enable-shared \
     --disable-v4l2-m2m \
     --disable-outdev=v4l2 \
