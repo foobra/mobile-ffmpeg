@@ -364,6 +364,8 @@ ulimit -n 2048 1>>${BASEDIR}/build.log 2>&1
     --enable-swresample \
     --enable-swscale \
     --enable-avutil \
+    --enable-avfilter \
+    --enable-filters \
      --enable-mediacodec \
      --enable-hwaccels \
       --enable-hwaccel=h264_mediacodec \
@@ -373,6 +375,7 @@ ulimit -n 2048 1>>${BASEDIR}/build.log 2>&1
     --enable-encoder=libx264 \
     --enable-encoder=libx264rgb \
     --enable-encoder=aac \
+    --enable-encoder=mpeg4 \
     --enable-protocol=file \
 --enable-decoder=h264_mediacodec \
 --enable-decoder=hevc_mediacodec \

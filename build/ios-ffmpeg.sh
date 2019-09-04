@@ -419,6 +419,7 @@ fi
     # --enable-encoder=mpeg4_videotoolbox \
     # --enable-encoder=ac3 \
 
+
 ./configure \
     --sysroot=${SDK_PATH} \
     --prefix=${BASEDIR}/prebuilt/$(get_target_build_directory)/${LIB_NAME} \
@@ -436,11 +437,12 @@ fi
        --disable-all \
     --enable-avcodec \
     --enable-avdevice \
-    --enable-avfilter \
     --enable-avformat \
     --enable-swresample \
     --enable-swscale \
     --enable-avutil \
+    --enable-avfilter \
+    --enable-filters \
     --enable-hwaccels \
     --enable-hwaccel=h264_videotoolbox \
     --enable-hwaccel=hevc_videotoolbox \
@@ -449,6 +451,7 @@ fi
     --enable-encoder=hevc_videotoolbox \
     --enable-encoder=aac_at \
     --enable-encoder=aac \
+    --enable-encoder=mpeg4 \
     --enable-protocol=file \
 --enable-decoder=libmp3lame \
 --enable-decoder=aac_latm \
@@ -460,6 +463,7 @@ fi
 --enable-decoder=hevc \
 --enable-decoder=vp8 \
 --enable-decoder=vp9 \
+--enable-decoder=mpeg4 \
 --enable-decoder=aac_at \
 --enable-decoder=ac3_at \
 --enable-decoder=mp3_at \
@@ -477,6 +481,7 @@ fi
 --enable-demuxer=mpegvideo \
 --enable-demuxer=flac \
 --enable-demuxer=hevc \
+ --enable-decoder=pcm_* \
     --enable-cross-compile \
     --enable-pic \
     --enable-asm \
@@ -518,6 +523,7 @@ fi
     --disable-vaapi \
     --disable-vdpau \
     ${CONFIGURE_POSTFIX} 1>>${BASEDIR}/build.log 2>&1
+
 
 if [ $? -ne 0 ]; then
     echo "failed"
