@@ -419,6 +419,7 @@ make distclean 2>/dev/null 1>/dev/null
     --strip="${STRIP}" \
     ${NEON_FLAG} \
        --disable-all \
+      --enable-encoder=libx264 \
     --enable-avcodec \
     --enable-avdevice \
     --enable-avformat \
