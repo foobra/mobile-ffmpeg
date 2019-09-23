@@ -310,6 +310,13 @@ echo -n -e "\n${LIB_NAME}: "
 
 make distclean 2>/dev/null 1>/dev/null
 
+
+# modify by @gs
+# CFLAGS+=" -fvisibility=hidden -fvisibility-inlines-hidden -ffunction-sections -fdata-sections "
+# CXXFLAGS+=" -fvisibility=hidden -fvisibility-inlines-hidden -ffunction-sections -fdata-sections "
+# LDFLAGS+=" -Wl,--gc-sections  "
+
+
 export CFLAGS="${HIGH_PRIORITY_INCLUDES} ${CFLAGS}"
 export CXXFLAGS="${CXXFLAGS}"
 export LDFLAGS="${LDFLAGS}"
@@ -346,7 +353,10 @@ ulimit -n 2048 1>>${BASEDIR}/build.log 2>&1
     --enable-swscale \
     --enable-avutil \
     --enable-avfilter \
-    --enable-filters \
+    --enable-filter=abuffer \
+    --enable-filter=abuffersink \
+    --enable-filter=atempo \
+    --enable-filter=aformat \
      --enable-mediacodec \
      --enable-hwaccels \
       --enable-hwaccel=h264_mediacodec \
@@ -364,37 +374,17 @@ ulimit -n 2048 1>>${BASEDIR}/build.log 2>&1
 --enable-decoder=mpeg4_mediacodec \
 --enable-decoder=libmp3lame \
 --enable-decoder=aac_latm \
---enable-decoder=flv \
 --enable-decoder=h264 \
 --enable-decoder=mp3* \
---enable-decoder=vp6f \
---enable-decoder=flac \
 --enable-decoder=hevc \
---enable-decoder=vp8 \
---enable-decoder=vp9 \
 --enable-decoder=mpeg4 \
 --enable-muxer=mp4 \
 --enable-demuxer=aac \
---enable-demuxer=concat \
---enable-demuxer=data \
---enable-demuxer=flv \
---enable-demuxer=ts \
---enable-demuxer=hls \
---enable-demuxer=rmvb \
---enable-demuxer=mpg \
 --enable-demuxer=mpeg \
---enable-demuxer=wmv \
---enable-demuxer=live_flv \
 --enable-demuxer=mov \
---enable-demuxer=avi \
---enable-demuxer=mkv \
 --enable-demuxer=mp3 \
---enable-demuxer=mpegps \
---enable-demuxer=mpegts \
 --enable-demuxer=mpegvideo \
---enable-demuxer=flac \
 --enable-demuxer=hevc \
- --enable-decoder=pcm_* \
     --enable-cross-compile \
     --enable-pic \
     --enable-jni \
