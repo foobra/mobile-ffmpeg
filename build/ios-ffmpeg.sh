@@ -461,6 +461,7 @@ make distclean 2>/dev/null 1>/dev/null
 --enable-demuxer=live_flv \
 --enable-demuxer=mov \
 --enable-demuxer=mp3 \
+--enable-demuxer=caf \
 --enable-demuxer=mpegps \
 --enable-demuxer=mpegts \
 --enable-demuxer=mpegvideo \
