@@ -347,12 +347,18 @@ ulimit -n 2048 1>>${BASEDIR}/build.log 2>&1
     --target-os=android \
     ${ASM_FLAGS} \
      --disable-all \
+     --disable-everything \
+     --disable-ffplay \
+     --disable-ffprobe \
+     --disable-programs \
+     --disable-doc \
     --enable-avcodec \
     --enable-avformat \
     --enable-swresample \
     --enable-swscale \
     --enable-avutil \
     --enable-avfilter \
+    --disable-filters \
     --enable-filter=abuffer \
     --enable-filter=abuffersink \
     --enable-filter=atempo \

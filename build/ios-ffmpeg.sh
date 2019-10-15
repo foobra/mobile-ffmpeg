@@ -418,8 +418,12 @@ make distclean 2>/dev/null 1>/dev/null
     --ranlib="${RANLIB}" \
     --strip="${STRIP}" \
     ${NEON_FLAG} \
-       --disable-all \
-      --enable-encoder=libx264 \
+     --disable-all \
+     --disable-everything \
+     --disable-ffplay \
+     --disable-ffprobe \
+     --disable-programs \
+     --disable-doc \
     --enable-avcodec \
     --enable-avdevice \
     --enable-avformat \
@@ -427,7 +431,11 @@ make distclean 2>/dev/null 1>/dev/null
     --enable-swscale \
     --enable-avutil \
     --enable-avfilter \
-    --enable-filters \
+    --disable-filters \
+    --enable-filter=abuffer \
+    --enable-filter=abuffersink \
+    --enable-filter=atempo \
+    --enable-filter=aformat \
     --enable-hwaccels \
     --enable-hwaccel=h264_videotoolbox \
     --enable-hwaccel=hevc_videotoolbox \
@@ -468,6 +476,7 @@ make distclean 2>/dev/null 1>/dev/null
 --enable-demuxer=flac \
 --enable-demuxer=hevc \
  --enable-decoder=pcm_* \
+ --enable-encoder=libx264 \
     --enable-cross-compile \
     --enable-pic \
     --enable-asm \
