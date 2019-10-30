@@ -350,8 +350,14 @@ ulimit -n 2048 1>>${BASEDIR}/build.log 2>&1
      --disable-everything \
      --disable-ffplay \
      --disable-ffprobe \
+     --disable-ffmpeg \
      --disable-programs \
      --disable-doc \
+  --disable-htmlpages      \
+  --disable-manpages       \
+  --disable-podpages       \
+  --disable-txtpages       \
+  --disable-network \
     --enable-avcodec \
     --enable-avformat \
     --enable-swresample \
@@ -364,7 +370,7 @@ ulimit -n 2048 1>>${BASEDIR}/build.log 2>&1
     --enable-filter=atempo \
     --enable-filter=aformat \
      --enable-mediacodec \
-     --enable-hwaccels \
+     --disable-hwaccels \
       --enable-hwaccel=h264_mediacodec \
       --enable-hwaccel=hevc_mediacodec \
       --enable-hwaccel=mpeg2_mediacodec \
