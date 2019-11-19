@@ -47,29 +47,29 @@ case ${ARCH} in
     arm-v7a)
         TARGET_CPU="armv7-a"
         TARGET_ARCH="armv7-a"
-        ASM_FLAGS="	--disable-neon --enable-asm --enable-inline-asm"
+        ASM_FLAGS=" --disable-neon --enable-asm --enable-inline-asm"
     ;;
     arm-v7a-neon)
         TARGET_CPU="armv7-a"
         TARGET_ARCH="armv7-a"
-        ASM_FLAGS="	--enable-neon --enable-asm --enable-inline-asm"
+        ASM_FLAGS=" --enable-neon --enable-asm --enable-inline-asm"
     ;;
     arm64-v8a)
         TARGET_CPU="armv8-a"
         TARGET_ARCH="aarch64"
-        ASM_FLAGS="	--enable-neon --enable-asm --enable-inline-asm"
+        ASM_FLAGS=" --enable-neon --enable-asm --enable-inline-asm"
     ;;
     x86)
         TARGET_CPU="i686"
         TARGET_ARCH="i686"
 
         # asm disabled due to this ticker https://trac.ffmpeg.org/ticket/4928
-        ASM_FLAGS="	--disable-neon --disable-asm --disable-inline-asm"
+        ASM_FLAGS=" --disable-neon --disable-asm --disable-inline-asm"
     ;;
     x86-64)
         TARGET_CPU="x86_64"
         TARGET_ARCH="x86_64"
-        ASM_FLAGS="	--disable-neon --enable-asm --enable-inline-asm"
+        ASM_FLAGS=" --disable-neon --enable-asm --enable-inline-asm"
     ;;
 esac
 
@@ -370,7 +370,8 @@ ulimit -n 2048 1>>${BASEDIR}/build.log 2>&1
     --enable-filter=atempo \
     --enable-filter=aformat \
      --enable-mediacodec \
-     --disable-hwaccels \
+     --disable-securetransport \
+     --enable-hwaccels \
       --enable-hwaccel=h264_mediacodec \
       --enable-hwaccel=hevc_mediacodec \
       --enable-hwaccel=mpeg2_mediacodec \
@@ -387,6 +388,8 @@ ulimit -n 2048 1>>${BASEDIR}/build.log 2>&1
 --enable-decoder=libmp3lame \
 --enable-decoder=aac_latm \
 --enable-decoder=h264 \
+--disable-decoder=h263 \
+--disable-encoder=h263 \
 --enable-decoder=mp3* \
 --enable-decoder=hevc \
 --enable-decoder=mpeg4 \
@@ -397,6 +400,7 @@ ulimit -n 2048 1>>${BASEDIR}/build.log 2>&1
 --enable-demuxer=mp3 \
 --enable-demuxer=mpegvideo \
 --enable-demuxer=hevc \
+--disable-demuxer=h263 \
     --enable-cross-compile \
     --enable-pic \
     --enable-jni \
