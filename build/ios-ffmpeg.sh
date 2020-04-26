@@ -519,6 +519,7 @@ make distclean 2>/dev/null 1>/dev/null
     --disable-vdpau \
     --enable-demuxer=image_png_pipe --enable-encoder=png --enable-decoder=png \
     --enable-demuxer=image2 --enable-encoder=mjpeg --enable-decoder=mjpeg \
+    --enable-encoder=gif \
     ${CONFIGURE_POSTFIX} 1>>${BASEDIR}/build.log 2>&1
 
 if [ $? -ne 0 ]; then
