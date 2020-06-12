@@ -393,6 +393,7 @@ ulimit -n 2048 1>>${BASEDIR}/build.log 2>&1
 --enable-decoder=mp3* \
 --enable-decoder=hevc \
 --enable-decoder=mpeg4 \
+--enable-decoder=amr* \
 --enable-muxer=mp4 \
 --enable-demuxer=aac \
 --enable-demuxer=mpeg \
