@@ -301,7 +301,7 @@ fi
 if [[ -z ${MOBILE_FFMPEG_DEBUG} ]]; then
     DEBUG_OPTIONS="--disable-debug --enable-lto";
 else
-    DEBUG_OPTIONS="--enable-debug";
+    DEBUG_OPTIONS="--enable-debug --disable-stripping";
 fi
 
 cd ${BASEDIR}/src/${LIB_NAME} || exit 1

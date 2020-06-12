@@ -42,7 +42,7 @@ LOCAL_MODULE := mobileffmpeg
 LOCAL_SRC_FILES := $(MY_PATH)/mobileffmpeg.c $(MY_PATH)/fftools_cmdutils.c $(MY_PATH)/fftools_ffmpeg.c $(MY_PATH)/fftools_ffmpeg_opt.c $(MY_PATH)/fftools_ffmpeg_hw.c $(MY_PATH)/fftools_ffmpeg_filter.c
 LOCAL_CFLAGS := -Wall -Werror -Wno-unused-parameter -Wno-switch -Wno-sign-compare -I${LOCAL_PATH}/../../prebuilt/android-$(TARGET_ARCH)/ffmpeg/include
 LOCAL_LDLIBS := -llog -lz -landroid
-LOCAL_SHARED_LIBRARIES := libavfilter libavformat libavcodec libavutil libswresample libavdevice libswscale
+LOCAL_SHARED_LIBRARIES := c++_shared libavfilter libavformat libavcodec libavutil libswresample libavdevice libswscale
 include $(BUILD_SHARED_LIBRARY)
 
 ifeq ($(TARGET_ARCH_ABI), armeabi-v7a)
@@ -54,7 +54,7 @@ ifeq ($(TARGET_ARCH_ABI), armeabi-v7a)
         LOCAL_SRC_FILES := $(MY_PATH)/mobileffmpeg.c $(MY_PATH)/fftools_cmdutils.c $(MY_PATH)/fftools_ffmpeg.c $(MY_PATH)/fftools_ffmpeg_opt.c $(MY_PATH)/fftools_ffmpeg_hw.c $(MY_PATH)/fftools_ffmpeg_filter.c
         LOCAL_CFLAGS := -Wall -Werror -Wno-unused-parameter -Wno-switch -Wno-sign-compare -I${LOCAL_PATH}/../../prebuilt/android-$(TARGET_ARCH)/ffmpeg/include
         LOCAL_LDLIBS := -llog -lz -landroid
-        LOCAL_SHARED_LIBRARIES := libavcodec-neon libavfilter-neon libswscale-neon libavformat libavutil libswresample libavdevice
+        LOCAL_SHARED_LIBRARIES := c++_shared libavcodec-neon libavfilter-neon libswscale-neon libavformat libavutil libswresample libavdevice
         LOCAL_ARM_NEON := true
         include $(BUILD_SHARED_LIBRARY)
 
